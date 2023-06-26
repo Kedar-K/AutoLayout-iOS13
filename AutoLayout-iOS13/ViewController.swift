@@ -15,10 +15,18 @@ class ViewController: UIViewController {
     
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
-        let allDice = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+        var rand_one = Int.random(in: 0...5)
+        var rand_two = Int.random(in: 0...5)
+
         
-        diceImageView1.image = allDice[Int.random(in: 0...5)]
-        diceImageView2.image = allDice[Int.random(in: 0...5)]
+        let imageSubstitute =   ["One","Two","Three","Four","Five","Six"]
+        
+//        diceImageView1.image = UIImage(named: "Dice\(imageSubstitute[rand_one])")
+//        diceImageView2.image = UIImage(named: "Dice\(imageSubstitute[rand_two])")
+        
+        // We can also use the randomElemetnt to get the random value from the array or use the method above.
+        diceImageView1.image = UIImage(named: "Dice\(imageSubstitute.randomElement() ?? "One")")
+        diceImageView2.image = UIImage(named: "Dice\(imageSubstitute.randomElement() ?? "One")")
         
     }
     
